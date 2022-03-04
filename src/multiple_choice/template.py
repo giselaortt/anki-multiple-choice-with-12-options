@@ -65,6 +65,13 @@ card_front = """\
 <div class="hidden" id="Q_3">{{Q_3}}</div>
 <div class="hidden" id="Q_4">{{Q_4}}</div>
 <div class="hidden" id="Q_5">{{Q_5}}</div>
+<div class="hidden" id="Q_6">{{Q_6}}</div>
+<div class="hidden" id="Q_7">{{Q_7}}</div>
+<div class="hidden" id="Q_8">{{Q_8}}</div>
+<div class="hidden" id="Q_9">{{Q_9}}</div>
+<div class="hidden" id="Q_10">{{Q_10}}</div>
+<div class="hidden" id="Q_11">{{Q_11}}</div>
+<div class="hidden" id="Q_12">{{Q_12}}</div>
 
 <script>
     // Generate the table depending on the type.
@@ -447,7 +454,7 @@ label {
 }
 
 .correct {
-  background-color: lime;
+  background-color: #008000;
 }
 
 .nightMode .correct {
@@ -455,7 +462,7 @@ label {
 }
 
 .wrong {
-  background-color: OrangeRed;
+  background-color: #AA4A44;
 }
 
 .hidden {
@@ -474,8 +481,8 @@ label {
 }\
 """
 
-aio_model = "AllInOne (kprim, mc, sc)"
-aio_card = "AllInOne (kprim, mc, sc)"
+aio_model = "Multiple Choice with 10 options"
+aio_card = "Multiple Choice with 10 options"
 aio_fields = {
     "question": "Question",
     "title": "Title",
@@ -485,6 +492,13 @@ aio_fields = {
     "q3": "Q_3",
     "q4": "Q_4",
     "q5": "Q_5",
+    "q6": "Q_6",
+    "q7": "Q_7",
+    "q8": "Q_8",
+    "q9": "Q_9",
+    "q10": "Q_10",
+    "q11": "Q_11",
+    "q12": "Q_12",
     "answers": "Answers",
     "sources": "Sources",
     "extra": "Extra 1"
