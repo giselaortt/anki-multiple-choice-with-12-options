@@ -17,7 +17,7 @@ License kept from original work.
 
 the only folder that actually matters is the "multiple-choice" folder inside "src". You just need to add this one to your add-on folder.
 
-#TODO: make it available as anki package SOON.
+alternativelly you can add it trhought the anki add-ons tool, using the code 1573325751. my add-on link is this: https://ankiweb.net/shared/info/1573325751
 
 
 #### Creating / Editing
@@ -32,14 +32,8 @@ These values in the "Answer" field must be separated by a single space.
 The order and number of values in the "Answer" field must correspond with the choices "Q_1" to "Q_5".
 If you don't need all the choices, just leave the remaining "Q_" fields blank and only enter as many values as you need in the "Answers" field.
 
-![Editing](screenshots/edit.png)
 
-#### Reviewing
-
-Select the correct and incorrect choices accordingly and click "Show Answer".
-The add-on will automatically style your choices based on whether you answered correctly or not.
-
-### License and Credits
+### License and Credits -> original text from zjosua
 
 *Multiple Choice for Anki* is *Copyright © 2021 [zjosua](https://github.com/zjosua)*
 
