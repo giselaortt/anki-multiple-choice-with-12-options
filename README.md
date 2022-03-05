@@ -8,6 +8,8 @@ original work from: https://github.com/zjosua/anki-mc
 This is my version of zjosua work.
 Thiss add on allows for multiple choice on anki, but only 5 options. For some german declinations I needed up to 8 diferent options in order to contain every declination. So I changed the original code and increased the possibility to 12 options (a bit extra just in case).
 
+I also changed the colors to less bright ones for personal preference.
+
 License kept from original work.
 
 ### Usage
