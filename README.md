@@ -1,18 +1,14 @@
-## anki-mc
 
-Adds multiple choice cards to Anki.
+# Credits:
+original work from: https://github.com/zjosua/anki-mc
 
-### Screenshots
 
-| Single Choice                                   | Multiple Choice                                     | Kprim                           |
-|:-----------------------------------------------:|:---------------------------------------------------:|:-------------------------------:|
-| ![Single Choice](screenshots/single_choice.png) | ![Multiple Choice](screenshots/multiple_choice.png) | ![Kprim](screenshots/kprim.png) |
+# anki multiple choice with 12 options
 
-### Compatibility
+This is my version of zjosua work.
+Thiss add on allows for multiple choice on anki, but only 5 options. For some german declinations I needed up to 8 diferent options in order to contain every declination. So I changed the original code and increased the possibility to 12 options (a bit extra just in case).
 
-Anki 2.1.20 or higher is required for this add-on to work.
-
-Cards created with this add-on can be reviewed with all Computer and mobile apps and on AnkiWeb.
+License kept from original work.
 
 ### Usage
 
