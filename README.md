@@ -12,7 +12,13 @@ I also changed the colors to less bright ones for personal preference.
 
 License kept from original work.
 
-### Usage
+### How to use ?
+
+
+the only folder that actually matters is the "multiple-choice" folder inside "src". You just need to add this one to your add-on folder.
+
+#TODO: make it available as anki package SOON.
+
 
 #### Creating / Editing
 
