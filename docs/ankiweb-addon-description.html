@@ -1,6 +1,6 @@
 Adds multiple choice cards to Anki.
 
-<b>SCREENSHOTS</b>
+<b id="screenshots">SCREENSHOTS</b>
 
 <img src="https://raw.githubusercontent.com/zjosua/anki-mc/master/screenshots/single_choice.png" alt="Single Choice" title="Single Choice">
 
@@ -8,15 +8,16 @@ Adds multiple choice cards to Anki.
 
 <img src="https://raw.githubusercontent.com/zjosua/anki-mc/master/screenshots/kprim.png" alt="Kprim" title="Kprim">
 
-<b>COMPATIBILITY</b>
+<b id="compatibility">COMPATIBILITY</b>
 
-Anki 2.1.20 or higher is required for this add-on to work.
+Anki 2.1.55 or higher is required for the most recent version of this add-on to work.
+For Anki 2.1.44 to 2.1.54, you can use v2.8.0 (or lower) of the add-on.
 
 Cards created with this add-on can be reviewed with all Computer and mobile apps and on AnkiWeb.
 
-<b>USAGE</b>
+<b id="usage">USAGE</b>
 
-<b>Creating / Editing</b>
+<b id="creating--editing">Creating / Editing</b>
 
 The note type is automatically added the first time you start Anki after installing the add-on.
 
@@ -26,29 +27,40 @@ It can be either 0 (Kprim), 1 (Multiple Choice) or 2 (Single Choice).
 The Screenshots section shows how the question types look.
 These values in the &quot;Answer&quot; field must be separated by a single space.
 The order and number of values in the &quot;Answer&quot; field must correspond with the choices &quot;Q_1&quot; to &quot;Q_5&quot;.
-If you don&#39;t need all the choices, just leave the remaining &quot;Q_&quot; fields blank and only enter as many values as you need in the &quot;Answers&quot; field.
+If you don't need all the choices, just leave the remaining &quot;Q_&quot; fields blank and only enter as many values as you need in the &quot;Answers&quot; field.
 
 <img src="https://raw.githubusercontent.com/zjosua/anki-mc/master/screenshots/edit.png" alt="Editing">
 
-<b>Reviewing</b>
+<b id="reviewing">Reviewing</b>
 
 Select the correct and incorrect choices accordingly and click &quot;Show Answer&quot;.
 The add-on will automatically style your choices based on whether you answered correctly or not.
 
-<b>LICENSE AND CREDITS</b>
+<b id="addon-config">Addon Config</b>
 
-<em>Multiple Choice for Anki</em> is <em>Copyright © 2021 <a href="https://github.com/zjosua">zjosua</a></em>
+If you want to change the way your answers are styled (e.g. color green what you should have chosen instead of what
+you have chosen correctly) you can use the addon's config to switch between different styles:
+<img src="https://raw.githubusercontent.com/zjosua/anki-mc/master/screenshots/addon_config.png" alt="Addon Config Window" />
+(Tools -&gt; Addons -&gt; "Select the multiple choice addon" -&gt; Config)
+
+<b id="known-issues">Known Issues</b>
+
+<ul><li><a href="https://github.com/zjosua/anki-mc/pull/90">I don't understand the colors</a><ul><li>Use the <a href="#addon-config">addon's config</a> with<code>ALTERNATE_COLORING</code></li></ul></li><li><a href="https://github.com/zjosua/anki-mc/issues/87#issuecomment-1259818989">Turn off shuffling/randomization of answers</a><ul><li>Possible by duplicating the note type<code>AllInOne (kprim, mc, sc)</code> and replacing<code>qanda = shuffle(qanda);</code> with<code>// qanda = shuffle(qanda);</code>.</li></ul></li><li><a href="https://github.com/zjosua/anki-mc/issues/81">More than 5 answer options</a><ul><li>Possible with slight modification of the note type (fields) and tempalte HTML</li></ul></li></ul>
+
+<b id="license-and-credits">LICENSE AND CREDITS</b>
+
+<em>Multiple Choice for Anki</em> is <em>Copyright © 2023 <a href="https://github.com/3ter">3ter</a> and <a href="https://github.com/zjosua">zjosua</a></em>
 
 It is licensed under the AGPLv3.
 For more information refer to the <a href="https://github.com/zjosua/anki-mc/blob/master/LICENSE">LICENSE</a> file.
 
 A bunch of code in this add-on is based on the Anki add-ons <a href="https://github.com/glutanimate/image-occlusion-enhanced">Image Occlusion Enhanced</a> and <a href="https://github.com/glutanimate/cloze-overlapper">Cloze Overlapper</a> by Glutanimate.
-<a href="https://glutanimate.com/support-my-work/">Click here to support Glutanimate&#39;s work.</a>
+<a href="https://glutanimate.com/support-my-work/">Click here to support Glutanimate's work.</a>
 
-Persistence is achieved using the code from <a href="https://github.com/SimonLammer/anki-persistence">Simon Lammer&#39;s anki-persistence</a>.
+Persistence is achieved using the code from <a href="https://github.com/SimonLammer/anki-persistence">Simon Lammer's anki-persistence</a>.
 Great work Simon!
 
-<a href="https://github.com/Schlauer-Hax">Hax</a> merged my Multiple Choice card template with Simon Lammer&#39;s persistence code.
+<a href="https://github.com/Schlauer-Hax">Hax</a> merged my Multiple Choice card template with Simon Lammer's persistence code.
 He also reworked my card templates into one single all-in-one template.
 Thanks a lot!
 
@@ -57,10 +69,8 @@ Simon's and Hax's work made the multiple choice cards compatible with all platfo
 Volker Umpfenbach contributed a change that allows to customize how the questions and answers are colorized.
 He also provided the code to calculate and display the percentage of correctly answered items per question.
 
-Shoutout to <a href="https://github.com/3ter">3ter</a> for his contributions that improve card initialization and checkbox handling.
-
 This add-on uses the <a href="https://packaging.pypa.io/en/latest/">packaging</a> library.
 
-<b>SUPPORT</b>
+<b id="support">SUPPORT</b>
 
 Please use the <a href="https://github.com/zjosua/anki-mc/issues">issue tracker</a> on GitHub if you run into any issues.

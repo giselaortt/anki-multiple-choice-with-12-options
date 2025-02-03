@@ -1,0 +1,44 @@
+name: check-code
+run-name: Check ${{ github.event_name }} by @${{ github.actor }}
+
+on:
+  pull_request:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: psf/black@stable
+        with:
+          options: "--check"
+          src: "./src/multiple_choice"
+
+  isort:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: isort/isort-action@v1
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install anki aqt PyQt5 PyQt6 PyQt6-WebEngine
+        sudo apt-get install libegl1
+    - name: Test with pytest
+      run: |
+        pip install pytest pytest-cov
+        echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+        pytest --cov=src/multiple_choice/ | tee -a $GITHUB_STEP_SUMMARY
+        echo "\`\`\`" >> $GITHUB_STEP_SUMMARY

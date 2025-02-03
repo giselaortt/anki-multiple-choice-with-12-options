@@ -1,6 +1,7 @@
 # Multiple Choice for Anki
 #
-# Copyright (C) 2018-2021  zjosua <https://github.com/zjosua>
+# Copyright (C) 2018-2023  3ter <https://github.com/3ter>
+#                          zjosua <https://github.com/zjosua>
 #
 # This file is based on __init__.py from Glutanimate's
 # Cloze Overlapper Add-on for Anki
@@ -32,32 +33,32 @@
 #
 # Any modifications to this file must keep this entire header intact.
 
-from aqt import gui_hooks, mw
+from anki.utils import pointVersion
+from aqt.gui_hooks import addon_config_editor_will_update_json, profile_did_open
 
-from .config import *
-from .packaging import version
-from .template import *
+from .template import (
+    add_added_field_to_template,
+    manage_multiple_choice_note_type,
+    remove_deleted_field_from_template,
+    update_multiple_choice_note_type_from_config,
+)
 
-def getOrCreateModel():
-    model = mw.col.models.byName(aio_model)
-    if not model:
-        # create model
-        model = addModel(mw.col)
-        return model
-    model_version = mw.col.get_config('mc_conf')['version']
-    if version.parse(model_version) < version.parse(default_conf_syncd['version']):
-        return updateTemplate(mw.col)
-    return model
+field_deletion_hook_anki_version = 36
+field_addition_hook_anki_version = 66
 
-def delayedInit():
-    """Setup add-on config and templates, update if necessary"""
-    getSyncedConfig()
-    getLocalConfig()
-    getOrCreateModel()
-    if version.parse(mw.col.get_config("mc_conf")['version']) < version.parse(default_conf_syncd['version']):
-        updateSyncedConfig()
-    if version.parse(mw.pm.profile['mc_conf'].get('version', 0)) < version.parse(default_conf_syncd['version']):
-        updateLocalConfig()
+# Only execute addon after profile and collection are fully initialized
+profile_did_open.append(manage_multiple_choice_note_type)
 
-gui_hooks.profile_did_open.append(delayedInit)
+addon_config_editor_will_update_json.append(
+    update_multiple_choice_note_type_from_config
+)
 
+
+if pointVersion() >= field_deletion_hook_anki_version:
+    from aqt.gui_hooks import fields_did_delete_field
+
+    fields_did_delete_field.append(remove_deleted_field_from_template)
+if pointVersion() >= field_addition_hook_anki_version:
+    from aqt.gui_hooks import fields_did_add_field
+
+    fields_did_add_field.append(add_added_field_to_template)

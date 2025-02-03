@@ -1,6 +1,7 @@
 # Multiple Choice for Anki
 #
-# Copyright (C) 2018-2021  zjosua <https://github.com/zjosua>
+# Copyright (C) 2018-2023  3ter <https://github.com/3ter>
+#                          zjosua <https://github.com/zjosua>
 #
 # This file is based on config.py from Glutanimate's
 # Image Occlusion Enhanced Add-on for Anki
@@ -35,6 +36,13 @@
 
 """
 Sets up configuration
+
+There are two types of configuration:
+1. Config saved either within the collection (`mw.col.set_config()`) or within
+    the profile (`mw.pm.set_config()`). Only the collection is synced across
+    devices. These are used e.g. to store the addon's version.
+2. Config stored in a JSON file (`meta.json`) inside the addon folder which
+    can also be accessed and changed from within Anki from the addons window.
 """
 
 from aqt import mw
@@ -44,17 +52,18 @@ from .packaging import version
 
 # default configurations
 # TODO: update version number before release
-default_conf_local = {'version': "2.4.1"}
-default_conf_syncd = {'version': "2.4.1"}
+default_conf_local = {"version": "2.10.3"}
+default_conf_syncd = {"version": "2.10.3"}
+
 
 def getSyncedConfig():
     # Synced preferences
     if mw.col.get_config("mc_conf") is None:
         # create initial configuration
         mw.col.set_config("mc_conf", default_conf_syncd)
-        mw.col.setMod()
 
     return mw.col.get_config("mc_conf")
+
 
 def updateSyncedConfig():
     print("Updating config DB from earlier MC release")
@@ -62,19 +71,20 @@ def updateSyncedConfig():
     for key in list(default_conf_syncd.keys()):
         if key not in mw.col.get_config("mc_conf"):
             tmp_conf[key] = default_conf_syncd[key]
-    tmp_conf['version'] = default_conf_syncd['version']
+    tmp_conf["version"] = default_conf_syncd["version"]
     mw.col.set_config("mc_conf", tmp_conf)
-    mw.col.setMod()
+
 
 def getLocalConfig():
     # Local preferences
-    if 'mc_conf' not in mw.pm.profile:
+    if "mc_conf" not in mw.pm.profile:
         mw.pm.profile["mc_conf"] = default_conf_local
 
     return mw.pm.profile["mc_conf"]
+
 
 def updateLocalConfig():
     for key in list(default_conf_local.keys()):
         if key not in mw.col.get_config("mc_conf"):
             mw.pm.profile["mc_conf"][key] = default_conf_local[key]
-    mw.pm.profile['mc_conf']['version'] = default_conf_local['version']
+    mw.pm.profile["mc_conf"]["version"] = default_conf_local["version"]
